@@ -142,7 +142,7 @@ form > div > input{
     z-index: 10;
     align-items: center;
 }
-
+/*
 .book-read{
     font-size: 14px;
     height: fit-content;
@@ -153,8 +153,7 @@ form > div > input{
     background-color: var(--color-button-2);
     border: 1px solid rgba(0, 0, 0, 0.133);
     box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.456);
-}
-
+}*/
 .delete-btn{
     position: absolute;
     top: 210px;
@@ -165,4 +164,8 @@ form > div > input{
     color: white;
     border-radius: 5px;
     box-shadow: 2px 2px 3px white;
+}
+
+.book-read-btn[value="read"] {
+    background-color: green;
 }

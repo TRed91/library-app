@@ -47,6 +47,7 @@ function displayBooks(){
         const bookAuthor = document.createElement("div");
         const bookPagesLabel = document.createElement("div");
         const bookPages = document.createElement("div");
+        const bookRead = document.createElement("button");
         const bookDeleteBtn = document.createElement("button");
         bookDisplay.appendChild(bookCard);
         bookCard.appendChild(bookNameLabel)
@@ -68,11 +69,17 @@ function displayBooks(){
         bookAuthor.innerHTML = `${book.author}`;
         bookPagesLabel.innerHTML = "Pages:"
         bookPages.innerHTML = `${book.pages}`;
+
+        
+        bookCard.appendChild(bookRead);
+        bookRead.setAttribute("class", "book-read-btn");
+        bookRead.setAttribute("indexref", `${library.indexOf(book)}`)
         if (book.read === true) {
-            const bookRead = document.createElement("div");
-            bookCard.appendChild(bookRead);
-            bookRead.setAttribute("class", "book-read");
+            bookRead.setAttribute("value", "read")
             bookRead.innerHTML = "✔︎ Read"
+        } else {
+            bookRead.setAttribute("value", "not-read")
+            bookRead.innerHTML = "✗ Not Read"
         }
         
         bookCard.appendChild(bookDeleteBtn);
@@ -80,6 +87,7 @@ function displayBooks(){
         bookDeleteBtn.setAttribute("id", `delete-btn-${library.indexOf(book)}`);
         bookDeleteBtn.setAttribute("value", `${library.indexOf(book)}`)
         bookDeleteBtn.innerHTML = "✖︎ Delete";
+        readButton(bookRead);
         deleteButton(bookDeleteBtn);
     }
 }
@@ -99,5 +107,16 @@ function deleteButton(button){
         library.splice(button.value, 1);
         displayBooks();
     });
-    
-}
+};
+
+function readButton(button){
+    button.addEventListener("click", () => {
+        if (button.value === "read"){
+            button.value = "not-read"
+            button.innerHTML = "✗ Not Read"
+        } else {
+            button.value = "read"
+            button.innerHTML = "✔︎ Read"
+        }
+    });
+};
