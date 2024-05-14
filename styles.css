@@ -111,6 +111,7 @@ form > div > input{
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     gap: 10px;
+    position: relative;
 }
 
 .book-title-label,
@@ -135,7 +136,7 @@ form > div > input{
 }
 
 .book-read{
-    justify-self: center;
+    font-size: 14px;
     height: fit-content;
     width: fit-content;
     padding: 5px 10px;
@@ -147,7 +148,9 @@ form > div > input{
 }
 
 .delete-btn{
-    justify-self: end;
+    position: absolute;
+    top: 210px;
+    left: 130px;
     padding: 5px;
     background-color: #b53030;
     border: none;
