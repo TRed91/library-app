@@ -1,10 +1,4 @@
-const library = [
-    {title: "test title",
-     author: "author name",
-     pages: 123,
-     read: true,
-    }
-];
+const library = [];
 
 const bookDisplay = document.querySelector(".book-container");
 const newBookBtn = document.querySelector("#new-book-btn");
@@ -112,7 +106,7 @@ function deleteButton(button){
 function readButton(button){
     button.addEventListener("click", () => {
         let indexRef = button.getAttribute("indexRef")
-        
+
         if (button.value === "read"){
             button.value = "not-read";
             button.innerHTML = "✗ Not Read";
