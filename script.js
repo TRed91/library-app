@@ -103,18 +103,25 @@ function deleteButton(button){
     });
 };
 
+Book.prototype.readToggle = function(){
+    if (this.read === true){
+        this.read = false;
+    } else {
+        this.read = true;
+    }
+};
+
 function readButton(button){
     button.addEventListener("click", () => {
-        let indexRef = button.getAttribute("indexRef")
+        let indexRef = button.getAttribute("indexRef");
+        library[indexRef].readToggle();
 
         if (button.value === "read"){
             button.value = "not-read";
             button.innerHTML = "✗ Not Read";
-            library[indexRef].read = false;
         } else {
             button.value = "read";
             button.innerHTML = "✔︎ Read";
-            library[indexRef].read = true;
         }
     });
 };
