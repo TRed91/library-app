@@ -28,6 +28,9 @@ function addBookToLibrary(){
         titleInput.value, authorInput.value, pageInput.value, readInput.checked
     );
     library.push(newBook);
+    titleInput.value = "";
+    authorInput.value = "";
+    pageInput.value = "";
     displayBooks();
     formDisplay.hidden = true;
 }
@@ -69,14 +72,14 @@ function displayBooks(){
             const bookRead = document.createElement("div");
             bookCard.appendChild(bookRead);
             bookRead.setAttribute("class", "book-read");
-            bookRead.innerHTML = "Read"
+            bookRead.innerHTML = "✔︎ Read"
         }
         
         bookCard.appendChild(bookDeleteBtn);
         bookDeleteBtn.setAttribute("class", "delete-btn");
         bookDeleteBtn.setAttribute("id", `delete-btn-${library.indexOf(book)}`);
         bookDeleteBtn.setAttribute("value", `${library.indexOf(book)}`)
-        bookDeleteBtn.innerHTML = "Delete";
+        bookDeleteBtn.innerHTML = "✖︎ Delete";
         deleteButton(bookDeleteBtn);
     }
 }

@@ -9,15 +9,17 @@ h1, button {
 }
 
 :root {
-    --color-scheme-1: bisque;
-    --color-scheme-2: #2c416f;
-    --color-button-1: #864444;
+    --color-scheme-1: radial-gradient(circle, rgb(235, 238, 174) 0%, rgb(212, 187, 116) 100%);
+    --color-scheme-2: linear-gradient(319deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(61, 75, 124) 100%);
+    --color-button-1: radial-gradient(circle, rgb(238, 221, 174) 0%, rgb(203, 133, 96) 100%);
     --color-button-2: rgb(31, 90, 50);
 }
 
 body {
     position: relative;
-    background-color: var(--color-scheme-2);
+    background: var(--color-scheme-2);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -25,7 +27,7 @@ body {
 
 .title {
     color: var(--color-scheme-2);
-    background-color: var(--color-scheme-1);
+    background: var(--color-scheme-1);
     width: fit-content;
     padding: 10px 50px;
     border: 2px solid rgb(0, 0, 0);
@@ -45,8 +47,9 @@ h1 {
     font-size: 22px;
     font-weight: bold;
     border-radius: 10px;
-    background-color: var(--color-button-1);
-    box-shadow: 3px 3px 3px black;
+    border: none;
+    background: var(--color-button-1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.481);
     align-self: center;
 }
 
@@ -54,8 +57,10 @@ h1 {
     position: absolute;
     width: 300px;
     height: 280px;
-    left: calc(50vw - 140px);
-    background-color: var(--color-scheme-1);
+    left: calc(50vw - 150px);
+    top: 200px;
+
+    background: var(--color-scheme-1);
     
 }
 
@@ -97,6 +102,7 @@ form > div > input{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 20px;
 }
 .book-card {
     height: 250px;
@@ -107,7 +113,7 @@ form > div > input{
     padding: 15px;
     border: none;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.481);
-    background-color: var(--color-scheme-1);
+    background: var(--color-scheme-1);
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     gap: 10px;
@@ -118,7 +124,7 @@ form > div > input{
 .book-author-label,
 .book-pages-label{
     font-size: 0.9rem;
-    color: var(--color-button-1);
+    color: #865151;
 }
 
 .book-title,
@@ -133,6 +139,8 @@ form > div > input{
     box-shadow: 3px 3px 3px black;
     padding: 10px;
     border-radius: 10px;
+    z-index: 10;
+    align-items: center;
 }
 
 .book-read{
@@ -141,7 +149,7 @@ form > div > input{
     width: fit-content;
     padding: 5px 10px;
     border-radius: 5px;
-    color: var(--color-scheme-1);
+    color: white;
     background-color: var(--color-button-2);
     border: 1px solid rgba(0, 0, 0, 0.133);
     box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.456);
@@ -150,7 +158,7 @@ form > div > input{
 .delete-btn{
     position: absolute;
     top: 210px;
-    left: 130px;
+    left: 120px;
     padding: 5px;
     background-color: #b53030;
     border: none;
