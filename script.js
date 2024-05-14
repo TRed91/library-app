@@ -73,7 +73,7 @@ function displayBooks(){
         
         bookCard.appendChild(bookRead);
         bookRead.setAttribute("class", "book-read-btn");
-        bookRead.setAttribute("indexref", `${library.indexOf(book)}`)
+        bookRead.setAttribute("indexRef", `${library.indexOf(book)}`)
         if (book.read === true) {
             bookRead.setAttribute("value", "read")
             bookRead.innerHTML = "✔︎ Read"
@@ -111,12 +111,16 @@ function deleteButton(button){
 
 function readButton(button){
     button.addEventListener("click", () => {
+        let indexRef = button.getAttribute("indexRef")
+        
         if (button.value === "read"){
-            button.value = "not-read"
-            button.innerHTML = "✗ Not Read"
+            button.value = "not-read";
+            button.innerHTML = "✗ Not Read";
+            library[indexRef].read = false;
         } else {
-            button.value = "read"
-            button.innerHTML = "✔︎ Read"
+            button.value = "read";
+            button.innerHTML = "✔︎ Read";
+            library[indexRef].read = true;
         }
     });
 };

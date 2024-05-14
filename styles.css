@@ -13,6 +13,7 @@ h1, button {
     --color-scheme-2: linear-gradient(319deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(61, 75, 124) 100%);
     --color-button-1: radial-gradient(circle, rgb(238, 221, 174) 0%, rgb(203, 133, 96) 100%);
     --color-button-2: rgb(31, 90, 50);
+    --color-button-3: #b53030;
 }
 
 body {
@@ -159,13 +160,29 @@ form > div > input{
     top: 210px;
     left: 120px;
     padding: 5px;
-    background-color: #b53030;
+    background-color: var(--color-button-3);
     border: none;
     color: white;
     border-radius: 5px;
-    box-shadow: 2px 2px 3px white;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.255);
+}
+
+.book-read-btn{
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.255);
+    justify-self: start;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: 30px;
 }
 
 .book-read-btn[value="read"] {
+    border: none;
     background-color: green;
+    color: white;
+}
+
+.book-read-btn[value="not-read"] {
+    border: 2px solid var(--color-button-3);
+    color: var(--color-button-3);
+    background-color: var(--color-scheme-2);
 }
