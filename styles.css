@@ -56,9 +56,9 @@ h1 {
 
 .add-book-form {
     position: absolute;
-    width: 300px;
-    height: 280px;
-    left: calc(50vw - 150px);
+    width: 350px;
+    height: 300px;
+    left: calc(50vw - 175px);
     top: 200px;
 
     background: var(--color-scheme-1);
@@ -110,8 +110,8 @@ input[type="checkbox"]{
     padding: 20px;
 }
 .book-card {
-    height: 250px;
-    width: 200px;
+    height: 300px;
+    width: 270px;
     border: 2px solid black;
     box-shadow: 3px 3px 3px black;
     border-radius: 5px;
