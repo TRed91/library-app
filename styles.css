@@ -84,6 +84,7 @@ form > div > input{
     border-radius: 10px;
     background-color: rgb(241, 241, 241);
     padding-left: 10px;
+    width: 90%;
 }
 
 .add-btn > button{
@@ -110,8 +111,8 @@ input[type="checkbox"]{
     padding: 20px;
 }
 .book-card {
-    height: 250px;
-    width: 200px;
+    height: 300px;
+    width: 250px;
     border: 2px solid black;
     box-shadow: 3px 3px 3px black;
     border-radius: 5px;
@@ -135,7 +136,7 @@ input[type="checkbox"]{
 .book-title,
 .book-author,
 .book-pages{
-    margin-top: -5px;
+    margin-top: -10px;
     margin-left: 5px;
 }
 
@@ -161,8 +162,8 @@ input[type="checkbox"]{
 }*/
 .delete-btn{
     position: absolute;
-    top: 210px;
-    left: 120px;
+    top: 250px;
+    left: 160px;
     padding: 5px;
     background-color: var(--color-button-3);
     border: none;
