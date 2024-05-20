@@ -17,8 +17,51 @@ function Book(title, author, pages, read){
     this.read = Boolean(read);
 }
 
+class Books{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = Boolean(read);
+    }
+    /* toggleRead(){
+        if (this.read === true){
+            this.read = false;
+        } else {
+            this.read = true;
+        }
+    } */
+    readButton(button){
+        button.addEventListener("click", () => {
+            //this.toggleRead();
+            if (this.read === true){
+                this.read = false;
+                button.value = "not-read";
+                button.innerHTML = "✗ Not Read";
+            } else {
+                this.read = true;
+                button.value = "read";
+                button.innerHTML = "✔︎ Read";
+            }
+            /* if (button.value === "read"){
+                button.value = "not-read";
+                button.innerHTML = "✗ Not Read";
+            } else {
+                button.value = "read";
+                button.innerHTML = "✔︎ Read";
+            } */
+        });
+    }
+    deleteBook(index){
+        index.addEventListener("click", () => {
+            library.splice(index.value, 1);
+            displayBooks();
+        });
+    }
+}
+
 function addBookToLibrary(){
-    const newBook = new Book(
+    const newBook = new Books(
         titleInput.value, authorInput.value, pageInput.value, readInput.checked
     );
     library.push(newBook);
@@ -81,8 +124,10 @@ function displayBooks(){
         bookDeleteBtn.setAttribute("id", `delete-btn-${library.indexOf(book)}`);
         bookDeleteBtn.setAttribute("value", `${library.indexOf(book)}`)
         bookDeleteBtn.innerHTML = "✖︎ Delete";
-        readButton(bookRead);
-        deleteButton(bookDeleteBtn);
+        //readButton(bookRead);
+        book.readButton(bookRead);
+        book.deleteBook(bookDeleteBtn);
+        //deleteButton(bookDeleteBtn);
     }
 }
 
