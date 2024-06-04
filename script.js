@@ -77,6 +77,26 @@ const formFunction = (function(){
     const readInput = document.querySelector(".book-read-input");
     const addBtn = document.querySelector("#add-btn");
 
+    function validate() {
+        if (titleInput.validity.valueMissing){
+            titleInput.setCustomValidity('Please enter a book title.');
+        } else {
+            titleInput.setCustomValidity('');
+        }
+        
+        if (authorInput.validity.valueMissing) {
+            authorInput.setCustomValidity("Please enter the author's name.")
+        } else {
+            authorInput.setCustomValidity('');
+        }
+        
+        if (pageInput.validity.valueMissing) {
+            pageInput.setCustomValidity("Please enter the number of pages the book has.")
+        } else {
+            pageInput.setCustomValidity('');
+        }
+    }
+
     function addBookToLibrary(){
         const newBook = new Books(
             titleInput.value, authorInput.value, pageInput.value, readInput.checked
@@ -88,8 +108,18 @@ const formFunction = (function(){
         collection.displayBooks();
         formDisplay.hidden = true;
     }
+
+    titleInput.addEventListener('input', validate);
+    authorInput.addEventListener('input', validate);
+    pageInput.addEventListener('input', validate);
     
-    addBtn.addEventListener("click", addBookToLibrary);
+    addBtn.addEventListener("click", () => {
+        if (titleInput.validity.valid && pageInput.validity.valid && authorInput.validity.valid) {
+            addBookToLibrary();
+        } else {
+            validate();
+        }
+    });
 
     return {formDisplay}
 })();
@@ -123,3 +153,6 @@ class Books{
         });
     }
 }
+
+
+
